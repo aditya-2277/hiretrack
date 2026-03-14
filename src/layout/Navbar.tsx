@@ -11,7 +11,9 @@ function Navbar() {
   const isLandingPage = location.pathname === "/";
 
   return (
-    <header className="sticky top-0 left-0 right-0 py-4 border-b-2 border-surface/90 md:border-0 bg-background md:bg-transparent">
+    <header
+      className={`sticky top-0 left-0 right-0 py-4 z-50 border-b-2 border-surface/90 bg-background md:bg-transparent ${isLandingPage ? "md:border-0" : "md:border-2"}`}
+    >
       <nav className="container mx-auto px-6 flex justify-between items-center">
         {/*Logo - HireTrack */}
         <Link
@@ -42,7 +44,7 @@ function Navbar() {
         <div className="login-button">
           <Link
             to={"/auth"}
-            className={`${isLandingPage ? "inline-block" : "hidden"} px-4 py-2 rounded-full bg-primary text-foreground mx-2 shadow-lg shadow-primary/30 hover:bg-blue-500/60`}
+            className={`${isLandingPage ? "inline-block" : "hidden"} px-4 py-2 rounded-full bg-primary text-foreground mx-2 shadow-lg shadow-primary/30 transition-all hover:scale-105`}
           >
             Start Tracking!
           </Link>

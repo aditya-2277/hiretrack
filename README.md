@@ -1,6 +1,6 @@
 # HireTrack
 
-HireTrack is a React and TypeScript frontend for a job-search management product. The current version focuses on a polished landing experience and an authentication UI for a job tracking platform that helps candidates organize applications, interviews, follow-ups, and career planning.
+HireTrack is a React and TypeScript frontend for a job-search management product. The current version includes a marketing landing page, an authentication UI, and the first dashboard-style internal pages for managing applications, interviews, insights, and settings.
 
 ## Overview
 
@@ -8,11 +8,12 @@ The project currently includes:
 
 - A marketing landing page with hero, feature, demo, pricing, and testimonial sections
 - A dedicated authentication route with sign-in and sign-up card flows
+- A sidebar-based dashboard shell with multiple internal product routes
 - Reusable layout components for navigation and footer
 - Tailwind CSS v4 styling with a custom design token palette
 - Client-side routing with React Router
 
-This repository is currently frontend-focused. The authentication forms and product sections are presentational at this stage and are not connected to a backend service.
+This repository is currently frontend-focused. The authentication forms, dashboard sections, and profile information are presentational at this stage and are not connected to a backend service.
 
 ## Tech Stack
 
@@ -41,6 +42,11 @@ src/
 
 - `/` - Landing page
 - `/auth` - Authentication page with login and signup states
+- `/dashboard` - Main dashboard shell
+- `/applications` - Applications page
+- `/interviews` - Interviews page
+- `/insights` - Insights page
+- `/settings` - Settings page
 
 ## Getting Started
 
@@ -75,12 +81,13 @@ npm run lint
 
 ## Current Status
 
-HireTrack is in an early UI prototype stage. The codebase is structured for expansion, but several sections still use placeholder content and the auth flow is not yet wired to real application logic.
+HireTrack is in an early UI prototype stage. The codebase is structured for expansion, but several sections still use placeholder content, dummy profile data is intentionally present, and the auth flow is not yet wired to real application logic.
 
 Areas likely to be implemented next:
 
 - Real authentication and form handling
 - Interactive job application dashboard
+- Dashboard widgets and page-specific content
 - Demo content backed by live product data
 - Pricing content and plan comparison
 - Testimonials or social proof sourced from real users

@@ -1,8 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing.tsx";
 import Navbar from "./layout/Navbar.tsx";
 import Footer from "./layout/Footer.tsx";
+import Landing from "./pages/Landing.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
+import Dashboard from "./pages/Dashboard.tsx";
+import Applications from "./pages/Applications.tsx";
+import Interviews from "./pages/Interviews.tsx";
+import Insights from "./pages/Insights.tsx";
+import Settings from "./pages/Settings.tsx";
 
 function App() {
   return (
@@ -14,6 +19,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/auth" element={<LoginSignup />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/applications" element={<Applications />} />
+              <Route path="/interviews" element={<Interviews />} />
+              <Route path="/insights" element={<Insights />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </main>
           <Footer />
