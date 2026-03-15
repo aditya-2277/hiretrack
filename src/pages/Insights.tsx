@@ -1,12 +1,5 @@
-import Sidebar from "../components/Sidebar";
-
 function Insights() {
-  return (
-    <div className="flex flex-1">
-      <Sidebar />
-      <section className="flex-1">.</section>
-    </div>
-  );
+  return <section className="flex-1 p-4 ">Insights go here</section>;
 }
 
 export default Insights;

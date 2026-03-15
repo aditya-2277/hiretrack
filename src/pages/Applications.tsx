@@ -1,12 +1,5 @@
-import Sidebar from "../components/Sidebar";
-
 function Applications() {
-  return (
-    <div className="flex flex-1">
-      <Sidebar />
-      <section className="flex-1">.</section>
-    </div>
-  );
+  return <section className="flex-1 p-4 ">Applications go here</section>;
 }
 
 export default Applications;

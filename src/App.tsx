@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./layout/Navbar.tsx";
-import Footer from "./layout/Footer.tsx";
 import Landing from "./pages/Landing.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
+
+import LandingLayout from "./layout/LandingLayout.tsx";
+import AppLayout from "./layout/AppLayout.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Applications from "./pages/Applications.tsx";
 import Interviews from "./pages/Interviews.tsx";
@@ -11,25 +12,21 @@ import Settings from "./pages/Settings.tsx";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Router>
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex flex-1 flex-col">
-            <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/auth" element={<LoginSignup />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/applications" element={<Applications />} />
-              <Route path="/interviews" element={<Interviews />} />
-              <Route path="/insights" element={<Insights />} />
-              <Route path="/settings" element={<Settings />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route element={<LandingLayout />}>
+          <Route path="/" element={<Landing />} />
+          <Route path="/auth" element={<LoginSignup />} />
+        </Route>
+        <Route path="/app" element={<AppLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="applications" element={<Applications />} />
+          <Route path="interviews" element={<Interviews />} />
+          <Route path="insights" element={<Insights />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 

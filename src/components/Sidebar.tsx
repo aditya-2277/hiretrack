@@ -8,11 +8,11 @@ import {
 import { Link, useLocation } from "react-router-dom";
 
 const sideLinks = [
-  { to: "/dashboard", label: "Dashboard", icon: <MdOutlineDashboard /> },
-  { to: "/applications", label: "Applications", icon: <MdNewspaper /> },
-  { to: "/interviews", label: "Interviews", icon: <MdCalendarMonth /> },
-  { to: "/insights", label: "Insights", icon: <MdOutlineAnalytics /> },
-  { to: "/settings", label: "Settings", icon: <MdSettings /> },
+  { to: "/app/dashboard", label: "Dashboard", icon: <MdOutlineDashboard /> },
+  { to: "/app/applications", label: "Applications", icon: <MdNewspaper /> },
+  { to: "/app/interviews", label: "Interviews", icon: <MdCalendarMonth /> },
+  { to: "/app/insights", label: "Insights", icon: <MdOutlineAnalytics /> },
+  { to: "/app/settings", label: "Settings", icon: <MdSettings /> },
 ];
 
 const userObj = {
@@ -24,7 +24,7 @@ function Sidebar() {
   const location = useLocation();
   const currentPage = location.pathname;
   return (
-    <div className="w-64 border-r-2 border-gray-800 ">
+    <div className="w-64 border-r-2 border-gray-800 sticky top-16">
       <div className="px-4">
         <div className="text-white flex flex-col ml-2 mt-4">
           <span className="text-lg">{userObj.name}</span>

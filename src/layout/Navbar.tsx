@@ -1,27 +1,24 @@
-import { useLocation, Link } from "react-router-dom";
-import DesktopNav from "../components/DesktopNav";
+import Logo from "../components/Logo";
+import LandingNav from "../components/LandingNav";
 import NavProfile from "../components/NavProfile";
 
-function Navbar() {
-  const location = useLocation();
-  const isLandingPage = location.pathname === "/";
+export type NavbarProps = {
+  variant: "landing" | "app" | "auth";
+};
+
+const landingClasses =
+  "sticky top-0 left-0 right-0 py-4 z-50 h-16 border-b-2 border-surface/90 bg-background md:bg-transparent";
+
+function Navbar({ variant }: NavbarProps) {
   return (
-    <header
-      className={`sticky top-0 left-0 right-0 py-4 z-50 border-b-2 border-surface/90 bg-background md:bg-transparent ${isLandingPage ? "md:border-0" : "md:border-2"}`}
-    >
-      <nav className="container mx-auto px-6 flex justify-between items-center">
+    <header className={`${landingClasses}`}>
+      <nav className="container mx-auto px-6 flex justify-between items-center ">
         {/*Logo - HireTrack */}
-        <Link
-          to="/"
-          className="text-xl font-bold tracking-tight hover:text-primary"
-        >
-          Hire
-          <span className="text-xl text-pretty text-primary">Track</span>
-        </Link>
+        <Logo />
         {/* Desktop Navigation */}
-        <DesktopNav isLandingPage={isLandingPage} />
+        <LandingNav variant={variant} />
         {/*Profile & Login*/}
-        <NavProfile isLandingPage={isLandingPage} />
+        <NavProfile variant={variant} />
       </nav>
     </header>
   );
