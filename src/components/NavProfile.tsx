@@ -22,7 +22,9 @@ function NavProfile({ variant }: NavbarProps) {
           Go Home
         </Link>
       </div>
-      <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+      <div
+        className={`w-8 h-8 rounded-full bg-red-50 ${variant == "app" ? "flex items-center justify-center" : "hidden"}`}
+      >
         <img src={react} className="w-6" />
       </div>
     </>

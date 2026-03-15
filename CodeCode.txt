@@ -1,0 +1,332 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>InterviewTracker Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar {
+            transition: height 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 px-6 py-3 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 bg-primary/20 flex items-center justify-center rounded-lg">
+<span class="material-symbols-outlined text-primary" style="">analytics</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight" style="">HireTrack</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-64 h-10" style="">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 dark:text-slate-400 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-xl" style="">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:ring-0 h-full placeholder:text-slate-500 rounded-r-lg px-4 text-sm" placeholder="Search applications..." value="">
+</div>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined" style="">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors" style="">
+<span class="material-symbols-outlined" style="">settings</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-2"></div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="Professional profile picture of Alex Smith" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuChqNWRW6jKEWzXILgJQcW1r9lZZ4IR3dt0oLKO10eNBloUlR8lJt-6U_G3R3OHCsLqP5oAI34haWrrNx1uWycTRBOJVmFdGM2zc5Ul7-OZAtBGC_e4_zpwc-cLZFiPwtJGsjpmzmU7Qh4zy33YcOCsnC9xlue0c_VDM2V3qq2Cme7s2H2DevDtEA5_GCw5fBPi2kT67XStNpwP6r7fI1stSGsXo7vk92u0PcZAffTSm29BlNWS86ha74-ugvhfTQ7JcGp3bkxETDY&quot;);"></div>
+</div>
+</header>
+<div class="flex flex-1">
+<!-- Sidebar -->
+<aside class="hidden lg:flex w-64 flex-col border-r border-slate-200 dark:border-slate-800 p-4 gap-2 bg-background-light dark:bg-background-dark">
+<div class="flex items-center gap-3 px-3 py-3 mb-4">
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-slate-100 text-sm font-bold" style="">Alex Smith</h1>
+<p class="text-slate-500 dark:text-slate-400 text-xs" style="">Senior Product Designer</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary text-white font-medium" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">dashboard</span>
+<span class="text-sm" style="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">description</span>
+<span class="text-sm" style="">Applications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">calendar_today</span>
+<span class="text-sm" style="">Interviews</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">workspace_premium</span>
+<span class="text-sm" style="">Offers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#" style="">
+<span class="material-symbols-outlined text-xl" style="">analytics</span>
+<span class="text-sm" style="">Insights</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-200 dark:border-slate-800 pt-4">
+<div class="bg-primary/5 rounded-xl p-4 border border-primary/10">
+<p class="text-xs font-bold text-primary uppercase tracking-wider mb-1" style="">Pro Plan</p>
+<p class="text-slate-600 dark:text-slate-400 text-xs mb-3" style="">Get unlimited application tracking and AI feedback.</p>
+<button class="w-full bg-primary text-white text-xs font-bold py-2 rounded-lg hover:bg-primary/90 transition-colors" style="">Upgrade Now</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-6 md:p-8 gap-8 overflow-y-auto max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-slate-900 dark:text-slate-100 text-3xl font-extrabold tracking-tight" style="">Recruitment Dashboard</h2>
+<p class="text-slate-500 dark:text-slate-400 text-base" style="">Your career progress and interview pipeline at a glance.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-bold border border-slate-200 dark:border-slate-700" style="">
+<span class="material-symbols-outlined text-lg" style="">download</span>
+                        Export
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20" style="">
+<span class="material-symbols-outlined text-lg" style="">add</span>
+                        New Application
+                    </button>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 text-primary/10 group-hover:text-primary/20 transition-colors">
+<span class="material-symbols-outlined text-6xl" style="">send</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider" style="">Total Applied</p>
+<div class="flex items-end gap-3">
+<p class="text-slate-900 dark:text-slate-100 text-4xl font-black" style="">128</p>
+<span class="bg-emerald-500/10 text-emerald-500 text-xs font-bold px-2 py-1 rounded-full flex items-center mb-1" style="">
+<span class="material-symbols-outlined text-sm" style="">trending_up</span>
+                            12%
+                        </span>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs" style="">Applications submitted in last 30 days</p>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 text-amber-500/10 group-hover:text-amber-500/20 transition-colors">
+<span class="material-symbols-outlined text-6xl" style="">event_available</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider" style="">Scheduled Interviews</p>
+<div class="flex items-end gap-3">
+<p class="text-slate-900 dark:text-slate-100 text-4xl font-black" style="">14</p>
+<span class="bg-emerald-500/10 text-emerald-500 text-xs font-bold px-2 py-1 rounded-full flex items-center mb-1" style="">
+<span class="material-symbols-outlined text-sm" style="">trending_up</span>
+                            5%
+                        </span>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs" style="">Upcoming across all companies</p>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 text-emerald-500/10 group-hover:text-emerald-500/20 transition-colors">
+<span class="material-symbols-outlined text-6xl" style="">military_tech</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-semibold uppercase tracking-wider" style="">Offers Received</p>
+<div class="flex items-end gap-3">
+<p class="text-slate-900 dark:text-slate-100 text-4xl font-black" style="">3</p>
+<span class="bg-emerald-500/10 text-emerald-500 text-xs font-bold px-2 py-1 rounded-full flex items-center mb-1" style="">
+<span class="material-symbols-outlined text-sm" style="">trending_up</span>
+                            1%
+                        </span>
+</div>
+<p class="text-slate-400 dark:text-slate-500 text-xs" style="">Pending review or accepted</p>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Bar Chart -->
+<div class="xl:col-span-2 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold" style="">Applications by Month</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm" style="">Trends of your application activity in 2024</p>
+</div>
+<select class="bg-slate-100 dark:bg-slate-800 border-none rounded-lg text-xs font-bold px-3 py-2 focus:ring-1 focus:ring-primary">
+<option>Last 6 Months</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="flex items-end justify-between h-64 gap-2 pt-4">
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 rounded-t-lg h-[40%] hover:bg-primary transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">12</div>
+</div>
+<span class="text-slate-400 text-[10px] font-bold uppercase" style="">Jan</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 rounded-t-lg h-[65%] hover:bg-primary transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">22</div>
+</div>
+<span class="text-slate-400 text-[10px] font-bold uppercase" style="">Feb</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary rounded-t-lg h-[90%] hover:bg-primary/80 transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">35</div>
+</div>
+<span class="text-slate-900 dark:text-slate-100 text-[10px] font-bold uppercase" style="">Mar</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 rounded-t-lg h-[55%] hover:bg-primary transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">18</div>
+</div>
+<span class="text-slate-400 text-[10px] font-bold uppercase" style="">Apr</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 rounded-t-lg h-[75%] hover:bg-primary transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">28</div>
+</div>
+<span class="text-slate-400 text-[10px] font-bold uppercase" style="">May</span>
+</div>
+<div class="flex flex-col items-center flex-1 gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 rounded-t-lg h-[45%] hover:bg-primary transition-colors cursor-pointer relative group">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity" style="">15</div>
+</div>
+<span class="text-slate-400 text-[10px] font-bold uppercase" style="">Jun</span>
+</div>
+</div>
+</div>
+<!-- Recent Activity/Interviews -->
+<div class="rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold" style="">Upcoming</h3>
+<a class="text-primary text-xs font-bold hover:underline" href="#" style="">View All</a>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center font-bold text-primary" style="">G</div>
+<div class="flex flex-1 flex-col overflow-hidden">
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold truncate" style="">Google • Final Round</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs" style="">Tomorrow, 10:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-slate-400" style="">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center font-bold text-primary" style="">S</div>
+<div class="flex flex-1 flex-col overflow-hidden">
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold truncate" style="">Stripe • Technical Design</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs" style="">Mar 22, 2:30 PM</p>
+</div>
+<span class="material-symbols-outlined text-slate-400" style="">chevron_right</span>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors border border-transparent hover:border-slate-100 dark:hover:border-slate-700">
+<div class="size-10 rounded-lg bg-slate-100 dark:bg-slate-900 flex items-center justify-center font-bold text-primary" style="">F</div>
+<div class="flex flex-1 flex-col overflow-hidden">
+<p class="text-slate-900 dark:text-slate-100 text-sm font-bold truncate" style="">Figma • Portfolio Review</p>
+<p class="text-slate-500 dark:text-slate-400 text-xs" style="">Mar 25, 9:00 AM</p>
+</div>
+<span class="material-symbols-outlined text-slate-400" style="">chevron_right</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 rounded-lg border-2 border-dashed border-slate-200 dark:border-slate-700 text-slate-500 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" style="">
+                        Add to Calendar
+                    </button>
+</div>
+</div>
+<!-- Table Section -->
+<div class="rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+<h3 class="text-slate-900 dark:text-slate-100 text-lg font-bold" style="">Recent Applications</h3>
+<div class="flex gap-2">
+<button class="p-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500" style=""><span class="material-symbols-outlined text-lg" style="">filter_list</span></button>
+<button class="p-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500" style=""><span class="material-symbols-outlined text-lg" style="">sort</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-900/50">
+<th class="px-6 py-3 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase" style="">Company</th>
+<th class="px-6 py-3 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase" style="">Position</th>
+<th class="px-6 py-3 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase" style="">Status</th>
+<th class="px-6 py-3 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase text-right" style="">Date Applied</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary/10 flex items-center justify-center font-bold text-primary text-xs" style="">A</div>
+<span class="text-slate-900 dark:text-slate-100 font-medium" style="">Airbnb</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-300" style="">UX Researcher</td>
+<td class="px-6 py-4" style="">
+<span class="bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase" style="">Interviewing</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-right text-sm" style="">March 14, 2024</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary/10 flex items-center justify-center font-bold text-primary text-xs" style="">M</div>
+<span class="text-slate-900 dark:text-slate-100 font-medium" style="">Meta</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-300" style="">Product Designer</td>
+<td class="px-6 py-4" style="">
+<span class="bg-emerald-500/10 text-emerald-500 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase" style="">Offer Extended</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-right text-sm" style="">March 08, 2024</td>
+</tr>
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group cursor-pointer">
+<td class="px-6 py-4" style="">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary/10 flex items-center justify-center font-bold text-primary text-xs" style="">S</div>
+<span class="text-slate-900 dark:text-slate-100 font-medium" style="">Spotify</span>
+</div>
+</td>
+<td class="px-6 py-4 text-slate-600 dark:text-slate-300" style="">Senior Designer</td>
+<td class="px-6 py-4" style="">
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase" style="">Reviewing</span>
+</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400 text-right text-sm" style="">March 02, 2024</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-3 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-200 dark:border-slate-800 text-center">
+<button class="text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" style="">See 125 more applications</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
