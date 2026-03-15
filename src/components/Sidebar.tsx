@@ -24,7 +24,7 @@ function Sidebar() {
   const location = useLocation();
   const currentPage = location.pathname;
   return (
-    <div className="w-64 border-r-2 border-gray-800 sticky top-16">
+    <aside className="w-64 border-r-2 border-gray-800 sticky top-16 self-start h-[calc(100vh-4rem)] overflow-hidden">
       <div className="px-4">
         <div className="text-white flex flex-col ml-2 mt-4">
           <span className="text-lg">{userObj.name}</span>
@@ -41,7 +41,7 @@ function Sidebar() {
           </Link>
         ))}
       </div>
-    </div>
+    </aside>
   );
 }
 

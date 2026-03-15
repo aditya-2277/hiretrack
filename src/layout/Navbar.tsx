@@ -6,12 +6,13 @@ export type NavbarProps = {
   variant: "landing" | "app" | "auth";
 };
 
-const landingClasses =
+const landingClass =
   "sticky top-0 left-0 right-0 py-4 z-50 h-16 border-b-2 border-surface/90 bg-background md:bg-transparent";
 
+const appClass = "";
 function Navbar({ variant }: NavbarProps) {
   return (
-    <header className={`${landingClasses}`}>
+    <header className={`${landingClass}`}>
       <nav className="container mx-auto px-6 flex justify-between items-center ">
         {/*Logo - HireTrack */}
         <Logo />
