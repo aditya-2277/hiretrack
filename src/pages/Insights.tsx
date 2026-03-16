@@ -1,5 +1,14 @@
+import AppPageHeader from "../components/AppPageHeader";
+
 function Insights() {
-  return <section className="flex-1 p-4 ">Insights go here</section>;
+  return (
+    <section className="p-4 ">
+      <AppPageHeader
+        title="Hiring Insights"
+        desc="Insights on your applications for the last 30 days."
+      />
+    </section>
+  );
 }
 
 export default Insights;

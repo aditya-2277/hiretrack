@@ -1,103 +1,117 @@
 # HireTrack
 
-HireTrack is a React and TypeScript frontend for a job-search management product. The current version includes a marketing landing page, an authentication UI, and the first dashboard-style internal pages for managing applications, interviews, insights, and settings.
+HireTrack is a frontend job-application tracking app built with React, TypeScript, Vite, and Tailwind CSS v4. The project currently includes a marketing site, an auth screen, and a dashboard-style app shell with presentational analytics and application-management views.
 
-## Overview
+## Current Progress
 
-The project currently includes:
+The app is no longer just a landing-page prototype. The current implementation includes:
 
-- A marketing landing page with hero, feature, demo, pricing, and testimonial sections
-- A dedicated authentication route with sign-in and sign-up card flows
-- A sidebar-based dashboard shell with multiple internal product routes
-- Reusable layout components for navigation and footer
-- Tailwind CSS v4 styling with a custom design token palette
-- Client-side routing with React Router
+- A multi-section landing page with hero, about, demo, pricing, and testimonial sections
+- An `/auth` route with switchable sign-in and sign-up cards
+- A routed app workspace under `/app/*`
+- A sticky top navbar and sidebar navigation for internal pages
+- A dashboard page with summary KPI cards, a monthly applications bar chart, and a recent applications table
+- An applications page with a full table view and status badges
+- Shared page headers with export and contextual action buttons
+- Centralized mock data used by dashboard and applications views
 
-This repository is currently frontend-focused. The authentication forms, dashboard sections, and profile information are presentational at this stage and are not connected to a backend service.
+Some pages are still placeholders:
+
+- `/app/interviews` currently renders its page header only
+- `/app/insights` currently renders its page header only
+- `/app/settings` is still a stub
+- Auth actions, export buttons, and create actions are UI-only and not wired to backend logic
 
 ## Tech Stack
 
 - React 19
 - TypeScript 5
-- Vite
+- Vite 8 beta
 - Tailwind CSS 4
 - React Router DOM 7
+- Chart.js 4
+- react-chartjs-2
+- React Icons
 - ESLint 9
+
+## Routes
+
+- `/` - marketing landing page
+- `/auth` - login and signup UI
+- `/app/dashboard` - dashboard overview with cards, chart, and recent applications
+- `/app/applications` - applications table
+- `/app/interviews` - interviews page scaffold
+- `/app/insights` - insights page scaffold
+- `/app/settings` - settings page scaffold
 
 ## Project Structure
 
 ```text
 src/
-  assets/         Static images used in the UI
-  components/     Auth page UI components
-  layout/         Shared layout elements such as navbar and footer
-  pages/          Route-level page components
-  sections/       Landing page content sections
-  App.tsx         Route composition and page shell
-  main.tsx        Application bootstrap
-  index.css       Global styles and theme tokens
+  assets/             Static assets and dashboard imagery
+  components/         Reusable UI for dashboard, auth, tables, and navigation
+  data/               Mock navigation and application/card data
+  landing_sections/   Landing page sections
+  layout/             Shared route layouts, navbar, and footer
+  pages/              Route-level page components
+  App.tsx             Router configuration
+  index.css           Tailwind import and theme tokens
+  main.tsx            App bootstrap
 ```
-
-## Routes
-
-- `/` - Landing page
-- `/auth` - Authentication page with login and signup states
-- `/dashboard` - Main dashboard shell
-- `/applications` - Applications page
-- `/interviews` - Interviews page
-- `/insights` - Insights page
-- `/settings` - Settings page
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 20 or newer
-- npm 10 or newer
+- Node.js 20+
+- npm 10+
 
-### Installation
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### Start the development server
 
 ```bash
 npm run dev
 ```
 
-### Create a production build
+### Build for production
 
 ```bash
 npm run build
 ```
 
-### Lint the project
+### Run linting
 
 ```bash
 npm run lint
 ```
 
-## Current Status
+### Preview the production build
 
-HireTrack is in an early UI prototype stage. The codebase is structured for expansion, but several sections still use placeholder content, dummy profile data is intentionally present, and the auth flow is not yet wired to real application logic.
+```bash
+npm run preview
+```
 
-Areas likely to be implemented next:
+## Implementation Notes
 
-- Real authentication and form handling
-- Interactive job application dashboard
-- Dashboard widgets and page-specific content
-- Demo content backed by live product data
-- Pricing content and plan comparison
-- Testimonials or social proof sourced from real users
+- The app uses `BrowserRouter` with separate public and app layouts
+- Dashboard metrics and table rows come from local mock data in `src/data/data.ts`
+- The dashboard chart uses Chart.js through `react-chartjs-2`
+- Styling is driven by Tailwind CSS v4 with custom theme variables in `src/index.css`
+- The current UI assumes mock user/profile data in the sidebar and presentational form inputs
 
-## Deployment Notes
+## Near-Term Gaps
 
-- Build artifacts are generated into `dist/`
-- TypeScript incremental build metadata is written to `.tsbuildinfo/` and is excluded from Git
-- `node_modules/` and other local artifacts are already ignored through `.gitignore`
+- Backend integration for auth and persisted application data
+- Real create/export actions
+- Interviews, insights, and settings page content
+- Form validation and submission handling
+- Responsive refinement for dense dashboard/table layouts
 
 ## License
 
-No license has been specified yet. Add one before publishing publicly if you want to define reuse terms.
+No license has been added yet.
