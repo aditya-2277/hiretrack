@@ -1,5 +1,11 @@
+import AppPageHeader from "../components/AppPageHeader";
+
 function Settings() {
-  return <section className="flex-1 p-4 ">Settings go here</section>;
+  return (
+    <section className="p-4 ">
+      <AppPageHeader title="Settings Page" desc="Settings" />
+    </section>
+  );
 }
 
 export default Settings;

@@ -1,21 +1,6 @@
-import { allApplications } from "../data/data";
 import { MdMoreVert } from "react-icons/md";
-function ApplicationsTable() {
-  const getStatusClasses = (status: string) => {
-    switch (status) {
-      case "Applied":
-        return "bg-blue-500/15 text-blue-400 border border-blue-500/20";
-      case "Interview":
-        return "bg-amber-500/15 text-amber-400 border border-amber-500/20";
-      case "Offer":
-        return "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
-      case "Rejected":
-        return "bg-rose-500/15 text-rose-400 border border-rose-500/20";
-      default:
-        return "bg-slate-700/40 text-slate-300 border border-slate-600";
-    }
-  };
-
+import { allInterviews } from "../data/data";
+function InterviewsTable() {
   return (
     <div className="mt-6 rounded-2xl border border-white/10 overflow-hidden">
       <table className="w-full text-sm text-left">
@@ -24,47 +9,45 @@ function ApplicationsTable() {
             <th className="px-4 py-3 font-medium">Company</th>
             <th className="px-4 py-3 font-medium">Position</th>
             <th className="px-4 py-3 font-medium">Type</th>
-            <th className="px-4 py-3 font-medium">Status</th>
-            <th className="px-4 py-3 font-medium">Date Applied</th>
+            <th className="px-4 py-3 font-medium">Questions</th>
+            <th className="px-4 py-3 font-medium">Interview Date</th>
             <th className="px-4 py-3 font-medium">Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {allApplications.map((application) => (
+          {allInterviews.map((interview) => (
             <tr
-              key={`${application.company}-${application.position}`}
+              key={`${interview.company}-${interview.position}`}
               className="border-b border-white/5 last:border-b-0 hover:bg-white/5 transition-colors"
             >
               <td
-                title={application.company}
+                title={interview.company}
                 className="px-4 py-4 font-medium text-foreground whitespace-nowrap max-w-34 truncate"
               >
-                {application.company}
+                {interview.company}
               </td>
               <td
-                title={application.position}
+                title={interview.position}
                 className="px-4 py-4 text-muted-foreground max-w-32 truncate"
               >
-                {application.position}
+                {interview.position}
               </td>
               <td
-                title={application.type}
+                title={interview.type}
                 className="px-4 py-4 text-muted-foreground max-w-32 truncate"
               >
-                {application.type}
+                {interview.type}
               </td>
               <td className="px-4 py-4">
                 <span
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${getStatusClasses(
-                    application.status,
-                  )}`}
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium underline cursor-pointer`}
                 >
-                  {application.status}
+                  View
                 </span>
               </td>
               <td className="px-4 py-4 text-muted-foreground whitespace-nowrap">
-                {application.dateApplied}
+                {interview.interviewDate}
               </td>
               <td className="px-4 py-4 text-muted-foreground whitespace-nowrap">
                 <MdMoreVert className="hover:bg-gray-600 text-2xl rounded-md" />
@@ -77,4 +60,4 @@ function ApplicationsTable() {
   );
 }
 
-export default ApplicationsTable;
+export default InterviewsTable;

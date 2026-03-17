@@ -5,7 +5,9 @@ function AppPageButtons() {
   const location = useLocation();
   const pathName = location.pathname;
   return (
-    <div className="flex items-end">
+    <div
+      className={`items-end ${pathName == "/app/settings" ? "hidden" : "flex"}`}
+    >
       <button
         type="button"
         className="bg-gray-800 h-10 shadow-sm shadow-gray-600/50 border-white rounded-xl p-2 mx-4 hover:bg-gray-900 flex items-center"

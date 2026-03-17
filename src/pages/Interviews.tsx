@@ -1,4 +1,5 @@
 import AppPageHeader from "../components/AppPageHeader";
+import InterviewsTable from "../components/InterviewsTable";
 
 function Interviews() {
   return (
@@ -7,6 +8,7 @@ function Interviews() {
         title="Active Interviews"
         desc="List of all your upcoming interviews"
       />
+      <InterviewsTable />
     </section>
   );
 }
