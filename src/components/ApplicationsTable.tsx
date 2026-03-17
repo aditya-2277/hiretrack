@@ -1,6 +1,11 @@
-import { allApplications } from "../data/data";
 import { MdMoreVert } from "react-icons/md";
-function ApplicationsTable() {
+import type { JobApplication } from "../types/jobApplication";
+
+type ApplicationsTableProps = {
+  applications: JobApplication[];
+};
+
+function ApplicationsTable({ applications }: ApplicationsTableProps) {
   const getStatusClasses = (status: string) => {
     switch (status) {
       case "Applied":
@@ -31,16 +36,16 @@ function ApplicationsTable() {
         </thead>
 
         <tbody>
-          {allApplications.map((application) => (
+          {applications.map((application) => (
             <tr
-              key={`${application.company}-${application.position}`}
+              key={`${application.companyName}-${application.position}`}
               className="border-b border-white/5 last:border-b-0 hover:bg-white/5 transition-colors"
             >
               <td
-                title={application.company}
+                title={application.companyName}
                 className="px-4 py-4 font-medium text-foreground whitespace-nowrap max-w-34 truncate"
               >
-                {application.company}
+                {application.companyName}
               </td>
               <td
                 title={application.position}
