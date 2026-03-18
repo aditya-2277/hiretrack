@@ -1,11 +1,18 @@
+import { useState } from "react";
 import { MdMoreVert } from "react-icons/md";
 import type { JobApplication } from "../types/jobApplication";
 
 type ApplicationsTableProps = {
   applications: JobApplication[];
+  onSuccess: () => Promise<void>;
 };
 
-function ApplicationsTable({ applications }: ApplicationsTableProps) {
+function ApplicationsTable({
+  applications,
+  onSuccess,
+}: ApplicationsTableProps) {
+  const [openMenuId, setOpenMenuId] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const getStatusClasses = (status: string) => {
     switch (status) {
       case "Applied":
@@ -21,8 +28,28 @@ function ApplicationsTable({ applications }: ApplicationsTableProps) {
     }
   };
 
+  const handleDelete = async (id: string) => {
+    try {
+      const response = await fetch(
+        `https://localhost:7057/api/jobapplications/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete application");
+      }
+
+      await onSuccess();
+      setIsMenuOpen(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="mt-6 rounded-2xl border border-white/10 overflow-hidden">
+    <div className="mt-6 rounded-2xl border border-white/10 overflow-visible max-h-screen">
       <table className="w-full text-sm text-left">
         <thead>
           <tr className="bg-slate-800 border-b border-white/10 text-muted-foreground">
@@ -38,7 +65,7 @@ function ApplicationsTable({ applications }: ApplicationsTableProps) {
         <tbody>
           {applications.map((application) => (
             <tr
-              key={`${application.companyName}-${application.position}`}
+              key={`${application.id}`}
               className="border-b border-white/5 last:border-b-0 hover:bg-white/5 transition-colors"
             >
               <td
@@ -72,7 +99,32 @@ function ApplicationsTable({ applications }: ApplicationsTableProps) {
                 {application.dateApplied}
               </td>
               <td className="px-4 py-4 text-muted-foreground whitespace-nowrap">
-                <MdMoreVert className="hover:bg-gray-600 text-2xl rounded-md" />
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpenMenuId(application.id);
+                      setIsMenuOpen(!isMenuOpen);
+                    }}
+                  >
+                    <MdMoreVert className="hover:bg-gray-600 text-2xl rounded-md" />
+                  </button>
+                  {openMenuId == application.id && (
+                    <div
+                      className={`absolute right-0 top-0 border bg-slate-800 text-white p-1 min-w-20 ${isMenuOpen ? "flex flex-col" : "hidden"}`}
+                    >
+                      <button className="w-full text-left px-1 py-2 hover:bg-slate-700">
+                        Edit
+                      </button>
+                      <button
+                        className="w-full text-left px-1 py-2 hover:bg-slate-700"
+                        onClick={() => handleDelete(application.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  )}
+                </div>
               </td>
             </tr>
           ))}

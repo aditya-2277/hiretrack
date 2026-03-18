@@ -38,7 +38,7 @@ function Applications() {
 
   let noOfAppln = applications.length;
   return (
-    <section className="p-4 ">
+    <section className="p-4">
       <AppPageHeader
         title="Active Applications"
         desc={`You have ${noOfAppln} active job applications this month`}
@@ -57,7 +57,12 @@ function Applications() {
         </div>
       )}
       {error && <p className="mt-6 text-red">{error}</p>}
-      {!loading && !error && <ApplicationsTable applications={applications} />}
+      {!loading && !error && (
+        <ApplicationsTable
+          applications={applications}
+          onSuccess={fetchApplications}
+        />
+      )}
     </section>
   );
 }

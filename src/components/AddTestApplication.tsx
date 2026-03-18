@@ -9,13 +9,14 @@ function AddTestApplication({ onSuccess }: Props) {
   const [position, setPostion] = useState("");
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
+  const [dateApplied, setDateApplied] = useState("");
 
   const data = {
     companyName,
     position,
     type,
     status,
-    dateApplied: "2026-03-06",
+    dateApplied,
   };
 
   const handleSubmit = async () => {
@@ -36,7 +37,13 @@ function AddTestApplication({ onSuccess }: Props) {
       }
 
       const result = await response.json();
+
       await onSuccess();
+      setCompanyName("");
+      setPostion("");
+      setType("");
+      setStatus("");
+      setDateApplied("");
       console.log(result);
     } catch (error) {
       console.error(error);
@@ -86,9 +93,15 @@ function AddTestApplication({ onSuccess }: Props) {
           <option value="Part-Time">Part-Time</option>
           <option value="Full-Time">Full-Time</option>
         </select>
+        <input
+          placeholder="yyyy-mm-dd"
+          value={dateApplied}
+          onChange={(e) => setDateApplied(e.target.value)}
+          className="mx-2 border"
+        ></input>
         <button
           onClick={handleSubmit}
-          className="border border-amber-50 p-2 bg-surface mx-6"
+          className="border rounded-2xl border-amber-50 p-2 bg-surface mx-6"
         >
           Submit
         </button>
