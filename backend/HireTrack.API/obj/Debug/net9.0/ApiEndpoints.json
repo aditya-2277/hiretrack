@@ -1,0 +1,60 @@
+[
+  {
+    "ContainingType": "HireTrack.API.Controllers.JobApplicationsController",
+    "Method": "GetAllApplications",
+    "RelativePath": "api/JobApplications",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HireTrack.API.Controllers.JobApplicationsController",
+    "Method": "CreateApplication",
+    "RelativePath": "api/JobApplications",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "application",
+        "Type": "HireTrack.Domain.Entities.JobApplication",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HireTrack.API.Controllers.JobApplicationsController",
+    "Method": "GetbyId",
+    "RelativePath": "api/JobApplications/{Id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HireTrack.API.Controllers.JobApplicationsController",
+    "Method": "DeleteApplication",
+    "RelativePath": "api/JobApplications/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

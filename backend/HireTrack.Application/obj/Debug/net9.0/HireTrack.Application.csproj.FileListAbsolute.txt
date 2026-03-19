@@ -1,0 +1,15 @@
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\bin\Debug\net9.0\HireTrack.Application.deps.json
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\bin\Debug\net9.0\HireTrack.Application.dll
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\bin\Debug\net9.0\HireTrack.Application.pdb
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\bin\Debug\net9.0\HireTrack.Domain.dll
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\bin\Debug\net9.0\HireTrack.Domain.pdb
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.csproj.AssemblyReference.cache
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.AssemblyInfoInputs.cache
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.AssemblyInfo.cs
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.csproj.CoreCompileInputs.cache
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrac.82C2AFAB.Up2Date
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.dll
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\refint\HireTrack.Application.dll
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\HireTrack.Application.pdb
+D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Application\obj\Debug\net9.0\ref\HireTrack.Application.dll
