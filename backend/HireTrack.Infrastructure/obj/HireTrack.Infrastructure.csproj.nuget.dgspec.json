@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj": {}
+    "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\HireTrack.Application.csproj": {
+    "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\HireTrack.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\HireTrack.Application.csproj",
+        "projectUniqueName": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\HireTrack.Application.csproj",
         "projectName": "HireTrack.Application",
-        "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\HireTrack.Application.csproj",
+        "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\HireTrack.Application.csproj",
         "packagesPath": "C:\\Users\\patil\\.nuget\\packages\\",
-        "outputPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\obj\\",
+        "outputPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj": {
-                "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj"
+              "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj": {
+                "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj": {
+    "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj",
+        "projectUniqueName": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj",
         "projectName": "HireTrack.Domain",
-        "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj",
+        "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj",
         "packagesPath": "C:\\Users\\patil\\.nuget\\packages\\",
-        "outputPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\obj\\",
+        "outputPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -140,14 +140,14 @@
         }
       }
     },
-    "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj": {
+    "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
         "projectName": "HireTrack.Infrastructure",
-        "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
+        "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\patil\\.nuget\\packages\\",
-        "outputPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\obj\\",
+        "outputPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -169,11 +169,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\HireTrack.Application.csproj": {
-                "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Application\\HireTrack.Application.csproj"
+              "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\HireTrack.Application.csproj": {
+                "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Application\\HireTrack.Application.csproj"
               },
-              "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj": {
-                "projectPath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Domain\\HireTrack.Domain.csproj"
+              "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj": {
+                "projectPath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Domain\\HireTrack.Domain.csproj"
               }
             }
           }

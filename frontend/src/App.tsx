@@ -15,11 +15,11 @@ function App() {
     <Router>
       <Routes>
         <Route element={<LandingLayout />}>
-          <Route path="/" element={<Landing />} />
+          <Route index element={<Landing />} />
           <Route path="/auth" element={<LoginSignup />} />
         </Route>
         <Route path="/app" element={<AppLayout />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="applications" element={<Applications />} />
           <Route path="interviews" element={<Interviews />} />
           <Route path="insights" element={<Insights />} />

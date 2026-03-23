@@ -17,3 +17,23 @@ D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Infrastructure\obj\Debug\net9.0\refi
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.pdb
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.genruntimeconfig.cache
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Infrastructure\obj\Debug\net9.0\ref\HireTrack.Infrastructure.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Infrastructure.deps.json
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Infrastructure.runtimeconfig.json
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Infrastructure.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Infrastructure.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Application.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Domain.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Application.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\bin\Debug\net9.0\HireTrack.Domain.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.csproj.AssemblyReference.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.AssemblyInfoInputs.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.AssemblyInfo.cs
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.sourcelink.json
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrac.053735BD.Up2Date
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\refint\HireTrack.Infrastructure.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\HireTrack.Infrastructure.genruntimeconfig.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Infrastructure\obj\Debug\net9.0\ref\HireTrack.Infrastructure.dll

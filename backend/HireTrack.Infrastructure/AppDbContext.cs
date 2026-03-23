@@ -14,9 +14,21 @@ namespace HireTrack.Infrastructure
         {
             
         }
-
+        
         public DbSet<JobApplication> JobApplications { get; set; }
 
-        
+        public DbSet<JobInterview> JobInterviews { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<JobInterview>()
+                .HasMany(i => i.Questions)
+                .WithOne(q => q.Interview)
+                .HasForeignKey(q => q.InterviewId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+
     }
 }

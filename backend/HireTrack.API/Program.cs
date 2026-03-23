@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
+//Middleware
 app.MapControllers();
 app.UseCors("AllowFrontend");
 

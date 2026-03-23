@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6Op3SpeP0PM=",
+  "dgSpecHash": "WaGVs5M2lw0=",
   "success": true,
-  "projectFilePath": "D:\\Learning\\ASP.NET MVC\\HireTrack\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
+  "projectFilePath": "D:\\Learning\\Full Stack .NET + React\\HireTrack\\backend\\HireTrack.Infrastructure\\HireTrack.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\patil\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\patil\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -9,3 +9,15 @@ D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Do
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Domain\obj\Debug\net9.0\refint\HireTrack.Domain.dll
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.pdb
 D:\Learning\ASP.NET MVC\HireTrack\HireTrack.Domain\obj\Debug\net9.0\ref\HireTrack.Domain.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\bin\Debug\net9.0\HireTrack.Domain.deps.json
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\bin\Debug\net9.0\HireTrack.Domain.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\bin\Debug\net9.0\HireTrack.Domain.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.AssemblyInfoInputs.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.AssemblyInfo.cs
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.csproj.CoreCompileInputs.cache
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.sourcelink.json
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\refint\HireTrack.Domain.dll
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\HireTrack.Domain.pdb
+D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.Domain\obj\Debug\net9.0\ref\HireTrack.Domain.dll
