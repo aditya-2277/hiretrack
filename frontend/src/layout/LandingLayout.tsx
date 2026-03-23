@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { type NavbarProps } from "./Navbar";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { type NavbarProps } from "../types/props";
+import Navbar from "../components/Landing/LandingNavbar";
+import Footer from "../components/Landing/Footer";
 
 function LandingLayout() {
   const location = useLocation();

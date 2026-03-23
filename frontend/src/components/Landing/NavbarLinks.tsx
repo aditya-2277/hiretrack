@@ -1,11 +1,9 @@
-import { navLinks } from "../data/data";
-import { type NavbarProps } from "../layout/Navbar";
+import { navLinks } from "../../data/data";
+import { type NavbarProps } from "../../types/props";
 
-function LandingNav({ variant }: NavbarProps) {
+function NavbarLinks({ variant }: NavbarProps) {
   return (
-    <div
-      className={`${(variant == "auth" || variant == "app") && "hidden"} items-center`}
-    >
+    <div className={`${variant == "auth" && "hidden"} items-center`}>
       <div className="flex glass px-2 py-1 rounded-full gap-2 items-center">
         {navLinks.map((link, index) => (
           <a
@@ -21,4 +19,4 @@ function LandingNav({ variant }: NavbarProps) {
   );
 }
 
-export default LandingNav;
+export default NavbarLinks;

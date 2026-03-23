@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { type NavbarProps } from "../layout/Navbar";
+import { type NavbarProps } from "../types/props";
 
 function Logo({ variant }: NavbarProps) {
   return (
     <Link
-      to={variant == "app" ? "/app/dashboard" : "/"}
+      to={variant == "landing" || variant == "auth" ? "/" : "/app"}
       className="text-xl font-bold tracking-tight hover:text-primary"
     >
       Hire

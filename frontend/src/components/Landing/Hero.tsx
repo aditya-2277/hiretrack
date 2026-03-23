@@ -1,4 +1,4 @@
-import dashboard from "../assets/dashboard.png";
+import dashboard from "../../assets/dashboard.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {

@@ -8,7 +8,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 
 const sideLinks = [
-  { to: "/app/dashboard", label: "Dashboard", icon: <MdOutlineDashboard /> },
+  { to: "/app", label: "Dashboard", icon: <MdOutlineDashboard /> },
   { to: "/app/applications", label: "Applications", icon: <MdNewspaper /> },
   { to: "/app/interviews", label: "Interviews", icon: <MdCalendarMonth /> },
   { to: "/app/insights", label: "Insights", icon: <MdOutlineAnalytics /> },

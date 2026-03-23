@@ -1,7 +1,7 @@
-import DashboardCards from "../components/DashboardCards";
-import Chart from "../components/Chart";
-import AppDashTable from "../components/AppDashTable";
-import AppPageHeader from "../components/AppPageHeader";
+import DashboardCards from "../components/Application/DashboardCards";
+import Chart from "../components/Application/Chart";
+import AppDashTable from "../components/Application/AppDashTable";
+import AppPageHeader from "../components/Application/AppPageHeader";
 
 function Dashboard() {
   return (

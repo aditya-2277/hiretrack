@@ -1,4 +1,4 @@
-import AppPageHeader from "../components/AppPageHeader";
+import AppPageHeader from "../components/Application/AppPageHeader";
 
 function Insights() {
   return (

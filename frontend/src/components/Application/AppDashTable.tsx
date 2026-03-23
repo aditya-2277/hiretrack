@@ -1,4 +1,4 @@
-import { applications } from "../data/data";
+import { applications } from "../../data/data";
 
 function AppDashTable() {
   const getStatusClasses = (status: string) => {

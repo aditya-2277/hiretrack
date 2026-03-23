@@ -1,5 +1,5 @@
-import AppPageHeader from "../components/AppPageHeader";
-import InterviewsTable from "../components/InterviewsTable";
+import AppPageHeader from "../components/Application/AppPageHeader";
+import InterviewsTable from "../components/Application/InterviewsTable";
 
 function Interviews() {
   return (

@@ -1,8 +1,8 @@
-import About from "../landing_sections/About";
-import Demo from "../landing_sections/Demo";
-import Hero from "../landing_sections/Hero";
-import Pricing from "../landing_sections/Pricing";
-import Testimonials from "../landing_sections/Testimonials";
+import About from "../components/Landing/About";
+import Demo from "../components/Landing/Demo";
+import Hero from "../components/Landing/Hero";
+import Pricing from "../components/Landing/Pricing";
+import Testimonials from "../components/Landing/Testimonials";
 
 function Landing() {
   return (

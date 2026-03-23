@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdMoreVert } from "react-icons/md";
-import type { JobApplication } from "../types/jobApplication";
+import type { JobApplication } from "../../types/jobApplication";
 
 type ApplicationsTableProps = {
   applications: JobApplication[];

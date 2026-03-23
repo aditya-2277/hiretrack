@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { type NavbarProps } from "../layout/Navbar";
-import react from "../assets/react.svg";
+import { type NavbarProps } from "../../types/props";
+import react from "../../assets/react.svg";
 
 function NavProfile({ variant }: NavbarProps) {
   return (

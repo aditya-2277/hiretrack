@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Landing/LandingNavbar";
+import Sidebar from "../components/Application/Sidebar";
 function AppLayout() {
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-background text-foreground">

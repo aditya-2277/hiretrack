@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import ApplicationsTable from "../components/ApplicationsTable";
-import AppPageHeader from "../components/AppPageHeader";
+import ApplicationsTable from "../components/Application/ApplicationsTable";
+import AppPageHeader from "../components/Application/AppPageHeader";
 import type { JobApplication } from "../types/jobApplication";
 import { Ring2 } from "ldrs/react";
 import "ldrs/react/Ring2.css";
-import AddTestApplication from "../components/AddTestApplication";
+import AddTestApplication from "../components/Application/AddTestApplication";
 
 function Applications() {
   const [applications, setApplications] = useState<JobApplication[]>([]);
