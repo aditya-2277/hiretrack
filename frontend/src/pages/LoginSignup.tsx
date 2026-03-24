@@ -6,7 +6,7 @@ import SignUpCard from "../components/Landing/SignUpCard";
 function LoginSignup() {
   const [mode, setMode] = useState<"login" | "signup">("login");
   return (
-    <section className="flex items-center px-4 py-4">
+    <section className="flex items-center px-4">
       <LoginHero />
       {mode === "login" ? (
         <LoginCard onSwitchToSignUp={() => setMode("signup")} />

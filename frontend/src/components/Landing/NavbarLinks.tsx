@@ -4,7 +4,7 @@ import { type NavbarProps } from "../../types/props";
 function NavbarLinks({ variant }: NavbarProps) {
   return (
     <div className={`${variant == "auth" && "hidden"} items-center`}>
-      <div className="flex glass px-2 py-1 rounded-full gap-2 items-center">
+      <div className="flex glass px-2 rounded-full gap-2 items-center">
         {navLinks.map((link, index) => (
           <a
             href={link.href}

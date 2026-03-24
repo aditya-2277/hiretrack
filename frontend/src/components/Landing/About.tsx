@@ -1,23 +1,4 @@
-const featureCards = [
-  {
-    title: "Visual Pipeline",
-    description:
-      "Track your progress from application to offer with a customizable kanban-style board. Drag and drop your way to success.",
-    material_logo: "conversion_path",
-  },
-  {
-    title: "Interview Prep",
-    description:
-      "Store company research, practice questions, and specific notes for every interview in one organized location.",
-    material_logo: "dictionary",
-  },
-  {
-    title: "Smart Reminders",
-    description:
-      "Never miss a follow-up or a scheduled interview with automated alerts and calendar integrations.",
-    material_logo: "alarm",
-  },
-];
+import { featureCards } from "../../data/data";
 
 function About() {
   return (

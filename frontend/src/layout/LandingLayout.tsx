@@ -1,6 +1,6 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { type NavbarProps } from "../types/props";
-import Navbar from "../components/Landing/LandingNavbar";
+import LandingNavbar from "../components/Landing/LandingNavbar";
 import Footer from "../components/Landing/Footer";
 
 function LandingLayout() {
@@ -14,7 +14,7 @@ function LandingLayout() {
   }
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <Navbar variant={path} />
+      <LandingNavbar variant={path} />
       <main>
         <Outlet />
       </main>

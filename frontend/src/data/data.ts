@@ -13,6 +13,31 @@ export const navLinks = [
   { href: "#testimonials", label: "Testimonials" },
 ];
 
+export const plans = [
+  {
+    plan: "Free Plan",
+    price: 0,
+    ctaLabel: "Get Started",
+    features: [
+      "Up to 10 active applications",
+      "Basic Kanban board",
+      "Standard interview prep templates",
+    ],
+  },
+  {
+    plan: "Pro Plan",
+    price: 12,
+    ctaLabel: "Upgrade to Pro",
+    features: [
+      "Unlimited job applications",
+      "Advanced analytics & insights",
+      "Email & Calendar synchronization",
+      "AI-driven resume keyword analysis",
+    ],
+    isPopular: true,
+  },
+] as const;
+
 export const cardData = [
   {
     title: "TOTAL APPLIED",
@@ -49,6 +74,27 @@ export const cardData = [
     card_desc: "Offers accepted or pending review",
     card_icon: MdCelebration,
     card_icon_color: "text-green-300/10 group-hover:text-green-300/30",
+  },
+];
+
+export const featureCards = [
+  {
+    title: "Visual Pipeline",
+    description:
+      "Track your progress from application to offer with a customizable kanban-style board. Drag and drop your way to success.",
+    material_logo: "conversion_path",
+  },
+  {
+    title: "Interview Prep",
+    description:
+      "Store company research, practice questions, and specific notes for every interview in one organized location.",
+    material_logo: "dictionary",
+  },
+  {
+    title: "Smart Reminders",
+    description:
+      "Never miss a follow-up or a scheduled interview with automated alerts and calendar integrations.",
+    material_logo: "alarm",
   },
 ];
 
