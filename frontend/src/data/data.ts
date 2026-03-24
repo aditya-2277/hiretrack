@@ -38,6 +38,30 @@ export const plans = [
   },
 ] as const;
 
+export const testimonials = [
+  {
+    quote:
+      "HireTrack gave me a clear system for every application. I stopped missing follow-ups, and my interview pipeline finally felt manageable.",
+    name: "Maya Chen",
+    role: "Frontend Developer",
+    company: "Series A SaaS Candidate",
+  },
+  {
+    quote:
+      "I used HireTrack to prep for interviews and track notes after each round. Having everything in one place made me sound sharper and more prepared.",
+    name: "Elena Brooks",
+    role: "Marketing Operations Specialist",
+    company: "Interviewing Across 6 Companies",
+  },
+  {
+    quote:
+      "What used to feel chaotic now feels structured. HireTrack turned my job hunt into a process I could actually improve week over week.",
+    name: "Noah Williams",
+    role: "Junior Software Engineer",
+    company: "New Grad Applicant",
+  },
+] as const;
+
 export const cardData = [
   {
     title: "TOTAL APPLIED",

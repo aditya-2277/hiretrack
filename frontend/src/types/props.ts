@@ -9,3 +9,10 @@ export type PricingCardProps = {
   features: readonly string[];
   isPopular?: boolean;
 };
+
+export type TestimonialCardProps = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
