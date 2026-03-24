@@ -2,19 +2,18 @@ import { type PricingCardProps } from "../../types/props";
 
 function PricingCard({
   plan,
-  price,
+  monthlyPrice,
+  yearlyPrice,
   ctaLabel,
   features,
   isPopular = false,
+  isMonthly,
 }: PricingCardProps) {
   return (
     <article
-      className={[
-        "relative flex min-h-100 flex-col rounded-[1.15rem] border bg-[#101827] px-7 py-7 shadow-[0_0_0_1px_rgba(19,127,236,0.04)] sm:px-8",
-        isPopular
-          ? "border-primary shadow-[0_0_0_1px_rgba(19,127,236,0.18)]"
-          : "border-primary/10",
-      ].join(" ")}
+      className={
+        "relative flex min-h-100 flex-col rounded-2xl border border-primary/20 bg-gray-900 px-7 py-7 shadow-gray-800 sm:px-8 hover:border-primary hover:scale-105 transition-all"
+      }
     >
       {isPopular ? (
         <span className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-primary-foreground">
@@ -32,8 +31,12 @@ function PricingCard({
       </p>
 
       <div className="mt-3 flex items-end gap-1 text-foreground">
-        <span className="text-5xl font-bold tracking-tight">${price}</span>
-        <span className="mb-1 text-xl font-semibold text-slate-400">/mo</span>
+        <span className="text-5xl font-bold tracking-tight">
+          ${isMonthly ? monthlyPrice : yearlyPrice}
+        </span>
+        <span className="mb-1 text-xl font-semibold text-slate-400">
+          {isMonthly ? "/mo" : "/yr"}
+        </span>
       </div>
 
       <button

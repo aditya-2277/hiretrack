@@ -16,7 +16,8 @@ export const navLinks = [
 export const plans = [
   {
     plan: "Free Plan",
-    price: 0,
+    monthlyPrice: 0,
+    yearlyPrice: 0,
     ctaLabel: "Get Started",
     features: [
       "Up to 10 active applications",
@@ -26,7 +27,8 @@ export const plans = [
   },
   {
     plan: "Pro Plan",
-    price: 12,
+    monthlyPrice: 12,
+    yearlyPrice: 100,
     ctaLabel: "Upgrade to Pro",
     features: [
       "Unlimited job applications",
@@ -42,23 +44,23 @@ export const testimonials = [
   {
     quote:
       "HireTrack gave me a clear system for every application. I stopped missing follow-ups, and my interview pipeline finally felt manageable.",
-    name: "Maya Chen",
-    role: "Frontend Developer",
-    company: "Series A SaaS Candidate",
+    name: "MC Stan",
+    role: "Mumble Developer",
+    company: "Hindi Records",
   },
   {
     quote:
       "I used HireTrack to prep for interviews and track notes after each round. Having everything in one place made me sound sharper and more prepared.",
-    name: "Elena Brooks",
-    role: "Marketing Operations Specialist",
-    company: "Interviewing Across 6 Companies",
+    name: "Emiway Bunty",
+    role: "Assistant to $ Sign",
+    company: "$ 1 Time",
   },
   {
     quote:
       "What used to feel chaotic now feels structured. HireTrack turned my job hunt into a process I could actually improve week over week.",
-    name: "Noah Williams",
+    name: "Aditya Patil",
     role: "Junior Software Engineer",
-    company: "New Grad Applicant",
+    company: "Google",
   },
 ] as const;
 

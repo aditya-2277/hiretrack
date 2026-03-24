@@ -4,10 +4,12 @@ export type NavbarProps = {
 
 export type PricingCardProps = {
   plan: string;
-  price: number;
+  monthlyPrice: number;
+  yearlyPrice: number;
   ctaLabel: string;
   features: readonly string[];
   isPopular?: boolean;
+  isMonthly: boolean;
 };
 
 export type TestimonialCardProps = {
