@@ -1,60 +1,73 @@
 # HireTrack
 
-HireTrack is now a monorepo containing both the frontend app and the backend API for a job application tracker.
+HireTrack is a monorepo for a job application tracker with:
 
-The repository currently includes:
+- a React + TypeScript frontend in `frontend/`
+- a .NET 9 Web API backend in `backend/`
+- Entity Framework Core migrations for SQL Server
 
-- A React 19 + TypeScript + Vite frontend in `frontend/`
-- A .NET 9 Web API backend in `backend/`
-- EF Core infrastructure and migrations for SQL Server
-- A basic job applications API used to persist application records
+The project currently combines a polished UI shell with one working backend integration path for job applications.
 
 ## Repository Structure
 
 ```text
 HireTrack/
-  frontend/                  React + Vite client app
-    src/
-    public/
-    package.json
-  backend/                   .NET solution
-    HireTrack.sln
-    HireTrack.API/           ASP.NET Core API entrypoint and controllers
-    HireTrack.Application/   Application layer
-    HireTrack.Domain/        Domain entities
-    HireTrack.Infrastructure/EF Core DbContext and migrations
+|-- frontend/
+|   |-- src/
+|   |   |-- components/
+|   |   |-- layout/
+|   |   |-- pages/
+|   |   |-- data/
+|   |   `-- types/
+|   |-- public/
+|   `-- package.json
+|-- backend/
+|   |-- HireTrack.sln
+|   |-- HireTrack.API/
+|   |-- HireTrack.Application/
+|   |-- HireTrack.Domain/
+|   `-- HireTrack.Infrastructure/
+`-- README.md
 ```
 
 ## Frontend
 
-The frontend includes:
+The frontend is a Vite app built with React 19 and TypeScript. It includes:
 
-- A landing page
-- An auth page with login and signup UI
-- An app shell under `/app/*`
-- Dashboard, applications, interviews, insights, and settings routes
-- Mock chart/table/dashboard data for the current UI
+- a landing page at `/`
+- an auth UI page at `/auth`
+- an application shell under `/app`
+- pages for dashboard, applications, interviews, insights, and settings
 
 ### Frontend Stack
 
 - React 19
 - TypeScript 5
-- Vite 8
+- Vite 8 beta
 - Tailwind CSS 4
 - React Router DOM 7
 - Chart.js 4
 - ESLint 9
 
+### Frontend Behavior
+
+- Most dashboard and marketing content still uses local mock data from `frontend/src/data/data.ts`
+- The applications page fetches real data from the backend
+- Creating and deleting applications is wired to the API
+- The frontend currently calls the backend using a hardcoded URL: `https://localhost:7057/api/jobapplications`
+
+Because of that hardcoded URL, the backend needs to be running on the HTTPS profile for the applications page to work without code changes.
+
 ### Frontend Commands
 
-Run from [`/frontend`](D:/Learning/Full%20Stack%20.NET%20+%20React/HireTrack/frontend):
+Run from `frontend/`:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Other frontend commands:
+Other available commands:
 
 ```bash
 npm run build
@@ -62,28 +75,39 @@ npm run lint
 npm run preview
 ```
 
-The Vite dev server runs on `http://localhost:5173`.
+The Vite dev server uses `http://localhost:5173`.
 
 ## Backend
 
-The backend is a .NET 9 solution organized into API, Application, Domain, and Infrastructure projects.
+The backend is a .NET 9 solution split into API, Application, Domain, and Infrastructure projects.
 
-Current backend behavior includes:
+### Backend Projects
 
-- `HireTrack.API` exposes REST endpoints for job applications
-- `HireTrack.Infrastructure` contains `AppDbContext` and EF Core migrations
-- `HireTrack.Domain` defines entities such as `JobApplication`
-- SQL Server is configured through `DefaultConnection`
-- CORS currently allows the frontend origin `http://localhost:5173`
+- `HireTrack.API`: ASP.NET Core API entry point and controllers
+- `HireTrack.Application`: application-layer project scaffold
+- `HireTrack.Domain`: domain entities
+- `HireTrack.Infrastructure`: EF Core `AppDbContext` and migrations
 
-### API Endpoints
+### Current Data Model
 
-The current API controller is `api/JobApplications` with:
+The domain currently includes:
+
+- `JobApplication`
+- `JobInterview`
+- `Question`
+
+`JobInterview` has a one-to-many relationship with `Question`.
+
+### Current API Surface
+
+Implemented controller:
 
 - `GET /api/JobApplications`
 - `GET /api/JobApplications/{id}`
 - `POST /api/JobApplications`
 - `DELETE /api/JobApplications/{id}`
+
+There is also an `InterviewsController`, but it is still scaffold-level and does not currently expose a usable routed action.
 
 ### Backend Stack
 
@@ -92,24 +116,25 @@ The current API controller is `api/JobApplications` with:
 - Entity Framework Core 9
 - SQL Server
 
-### Backend Prerequisites
-
-- .NET SDK 9
-- SQL Server or SQL Server Express
-
 ### Backend Configuration
 
-The default connection string is defined in [`backend/HireTrack.API/appsettings.json`](D:/Learning/Full%20Stack%20.NET%20+%20React/HireTrack/backend/HireTrack.API/appsettings.json):
+The API uses SQL Server through `DefaultConnection` in `backend/HireTrack.API/appsettings.json`:
 
 ```json
 "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=HireTrackDb;Trusted_Connection=True;TrustServerCertificate=True;"
 ```
 
-Update that value if your SQL Server instance differs.
+Update that connection string if your SQL Server instance differs.
+
+CORS currently allows only:
+
+```text
+http://localhost:5173
+```
 
 ### Backend Commands
 
-Run from [`/backend`](D:/Learning/Full%20Stack%20.NET%20+%20React/HireTrack/backend):
+Run from `backend/`:
 
 ```bash
 dotnet restore HireTrack.sln
@@ -117,44 +142,45 @@ dotnet build HireTrack.sln
 dotnet run --project HireTrack.API
 ```
 
-The API launch settings currently use:
+Launch settings currently define:
 
 - `http://localhost:5062`
 - `https://localhost:7057`
 
-### EF Core Commands
+### EF Core Command
 
-Run from [`/backend`](D:/Learning/Full%20Stack%20.NET%20+%20React/HireTrack/backend):
+Run from `backend/`:
 
 ```bash
 dotnet ef database update --project HireTrack.Infrastructure --startup-project HireTrack.API
 ```
 
-## Development Workflow
+## Running The Project
 
-To run the full stack locally:
+1. Start SQL Server and make sure `DefaultConnection` is valid.
+2. From `backend/`, run the API on the HTTPS profile so `https://localhost:7057` is available.
+3. From `frontend/`, run `npm install` and `npm run dev`.
+4. Open `http://localhost:5173`.
+5. Go to `/app/applications` to test the live applications flow.
 
-1. Start the backend from `backend/`
-2. Start the frontend from `frontend/`
-3. Open `http://localhost:5173`
+## Current Status
 
-## Current State
+What is wired up now:
 
-The repo has moved to a monorepo structure, but the integration is still partial.
+- frontend routing and app shell
+- persistent job application create/list/delete flow
+- EF Core migrations for the current schema
 
-Current gaps:
+What is still incomplete:
 
-- The frontend still contains mock data and UI-only flows in several places
-- Auth is present as UI but not wired to backend logic
-- Interviews, insights, and settings are still scaffold-level pages
-- There is no root-level task runner yet for starting frontend and backend together
+- authentication is UI-only
+- dashboard, interviews, insights, and settings are mostly static
+- interview/question APIs are not implemented yet
+- there is no shared root command to start frontend and backend together
+- frontend API configuration is hardcoded instead of environment-based
 
 ## Notes
 
-- `backend/` contains a Visual Studio solution: `HireTrack.sln`
-- `frontend/` remains an independent Node/Vite app
-- Build outputs and dependency folders should not be committed
-
-## License
-
-No license has been added yet.
+- No test projects are present in the repository yet
+- No Swagger/OpenAPI setup is configured in `Program.cs`
+- No license file has been added yet
