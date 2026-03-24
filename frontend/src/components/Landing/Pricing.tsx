@@ -9,21 +9,24 @@ function Pricing() {
       <div className="container px-6 flex flex-col items-center justify-center mt-10">
         <h2 className="text-3xl font-bold py-2">Choose your subscription</h2>
         <p className="text-lg py-2">We have plans tailored to your needs</p>
-        <div className="my-2 flex border border-gray-500 rounded-full">
-          <div className={`rounded-full min-w-24 text-center`}>
+        <div className="relative my-2 flex border border-gray-500 rounded-full">
+          <div
+            className={`absolute rounded-full bg-primary min-w-24 h-full transition-transform duration-300 ease-in-out ${isMonthly ? "" : "translate-x-full"}`}
+          ></div>
+          <div className="z-10 rounded-full min-w-24 text-center">
             <button
               type="button"
               onClick={() => setIsMonthly(true)}
-              className={`rounded-full p-2 w-full ${isMonthly ? "bg-primary" : "bg-primary/1"}`}
+              className={`rounded-full p-2 w-full`}
             >
               Monthly
             </button>
           </div>
-          <div className={`rounded-full min-w-24 text-center`}>
+          <div className={`rounded-full min-w-24 text-center z-10`}>
             <button
               type="button"
               onClick={() => setIsMonthly(false)}
-              className={`rounded-full p-2 w-full ${isMonthly ? "bg-primary/1" : "bg-primary"}`}
+              className={`rounded-full p-2 w-full`}
             >
               Yearly
             </button>
