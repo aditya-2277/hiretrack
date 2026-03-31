@@ -6,3 +6,5 @@ export type JobApplication = {
   status: string;
   dateApplied: string;
 };
+
+export type JobApplicationInput = Omit<JobApplication, "id">;

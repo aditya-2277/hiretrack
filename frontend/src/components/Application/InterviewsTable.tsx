@@ -1,5 +1,5 @@
 import { MdMoreVert } from "react-icons/md";
-import { allInterviews } from "../../data/data";
+import { allInterviews } from "../../data/dashboard";
 function InterviewsTable() {
   return (
     <div className="mt-6 rounded-2xl border border-white/10 overflow-hidden">

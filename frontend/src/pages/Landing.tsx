@@ -1,5 +1,5 @@
 import About from "../components/Landing/About";
-import Demo from "../components/Landing/Demo";
+// import Demo from "../components/Landing/Demo";
 import Hero from "../components/Landing/Hero";
 import Pricing from "../components/Landing/Pricing";
 import Testimonials from "../components/Landing/Testimonials";
@@ -9,7 +9,7 @@ function Landing() {
     <>
       <Hero />
       <About />
-      <Demo />
+      {/* <Demo /> */}
       <Pricing />
       <Testimonials />
     </>

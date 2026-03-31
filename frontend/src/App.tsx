@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing.tsx";
 import LoginSignup from "./pages/LoginSignup.tsx";
-
 import LandingLayout from "./layout/LandingLayout.tsx";
 import AppLayout from "./layout/AppLayout.tsx";
+import AuthLayout from "./layout/AuthLayout.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Applications from "./pages/Applications.tsx";
 import Interviews from "./pages/Interviews.tsx";
 import Insights from "./pages/Insights.tsx";
 import Settings from "./pages/Settings.tsx";
+import { APP_ROUTES, PUBLIC_ROUTES } from "./constants/routes.ts";
 
 function App() {
   return (
@@ -16,14 +17,22 @@ function App() {
       <Routes>
         <Route element={<LandingLayout />}>
           <Route index element={<Landing />} />
-          <Route path="/auth" element={<LoginSignup />} />
         </Route>
-        <Route path="/app" element={<AppLayout />}>
+        <Route element={<AuthLayout />}>
+          <Route path={PUBLIC_ROUTES.auth} element={<LoginSignup />} />
+        </Route>
+        <Route path={APP_ROUTES.root} element={<AppLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="applications" element={<Applications />} />
-          <Route path="interviews" element={<Interviews />} />
-          <Route path="insights" element={<Insights />} />
-          <Route path="settings" element={<Settings />} />
+          <Route
+            path={APP_ROUTES.applicationsRelative}
+            element={<Applications />}
+          />
+          <Route
+            path={APP_ROUTES.interviewsRelative}
+            element={<Interviews />}
+          />
+          <Route path={APP_ROUTES.insightsRelative} element={<Insights />} />
+          <Route path={APP_ROUTES.settingsRelative} element={<Settings />} />
         </Route>
       </Routes>
     </Router>

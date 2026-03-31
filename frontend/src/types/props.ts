@@ -1,7 +1,3 @@
-export type NavbarProps = {
-  variant: "landing" | "auth" | "app";
-};
-
 export type PricingCardProps = {
   plan: string;
   monthlyPrice: number;

@@ -1,14 +1,13 @@
-import { navLinks } from "../../data/data";
-import { type NavbarProps } from "../../types/props";
+import { marketingLinks } from "../../constants/navigation";
 
-function NavbarLinks({ variant }: NavbarProps) {
+function NavbarLinks() {
   return (
-    <div className={`${variant == "auth" && "hidden"} items-center`}>
+    <div className="items-center">
       <div className="flex glass rounded-full gap-2 items-center">
-        {navLinks.map((link, index) => (
+        {marketingLinks.map((link) => (
           <a
             href={link.href}
-            key={index}
+            key={link.label}
             className="px-4 py-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-muted"
           >
             {link.label}

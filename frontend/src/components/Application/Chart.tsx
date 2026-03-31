@@ -6,6 +6,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  type TooltipItem,
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
@@ -30,7 +31,7 @@ const options = {
       enabled: true,
       displayColors: false,
       callbacks: {
-        label: (context: any) => context.raw,
+        label: (context: TooltipItem<"bar">) => `${context.raw ?? 0}`,
       },
       //filter: {},
     },

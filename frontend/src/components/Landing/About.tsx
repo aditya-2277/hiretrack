@@ -1,4 +1,4 @@
-import { featureCards } from "../../data/data";
+import { featureCards } from "../../data/marketing";
 
 function About() {
   return (

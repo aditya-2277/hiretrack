@@ -1,51 +1,23 @@
 import { useState } from "react";
 import { MdMoreVert } from "react-icons/md";
 import type { JobApplication } from "../../types/jobApplication";
+import StatusBadge from "../shared/StatusBadge";
 
 type ApplicationsTableProps = {
   applications: JobApplication[];
-  onSuccess: () => Promise<void>;
+  deletingId: string | null;
+  onDelete: (id: string) => Promise<void>;
 };
 
 function ApplicationsTable({
   applications,
-  onSuccess,
+  deletingId,
+  onDelete,
 }: ApplicationsTableProps) {
-  const [openMenuId, setOpenMenuId] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const getStatusClasses = (status: string) => {
-    switch (status) {
-      case "Applied":
-        return "bg-blue-500/15 text-blue-400 border border-blue-500/20";
-      case "Interview":
-        return "bg-amber-500/15 text-amber-400 border border-amber-500/20";
-      case "Offer":
-        return "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
-      case "Rejected":
-        return "bg-rose-500/15 text-rose-400 border border-rose-500/20";
-      default:
-        return "bg-slate-700/40 text-slate-300 border border-slate-600";
-    }
-  };
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
-  const handleDelete = async (id: string) => {
-    try {
-      const response = await fetch(
-        `https://localhost:7057/api/jobapplications/${id}`,
-        {
-          method: "DELETE",
-        },
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to delete application");
-      }
-
-      await onSuccess();
-      setIsMenuOpen(false);
-    } catch (error) {
-      console.error(error);
-    }
+  const toggleMenu = (id: string) => {
+    setOpenMenuId((currentId) => (currentId === id ? null : id));
   };
 
   return (
@@ -87,13 +59,7 @@ function ApplicationsTable({
                 {application.type}
               </td>
               <td className="px-4 py-4">
-                <span
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${getStatusClasses(
-                    application.status,
-                  )}`}
-                >
-                  {application.status}
-                </span>
+                <StatusBadge status={application.status} />
               </td>
               <td className="px-4 py-4 text-muted-foreground whitespace-nowrap">
                 {application.dateApplied}
@@ -102,25 +68,24 @@ function ApplicationsTable({
                 <div className="relative">
                   <button
                     type="button"
-                    onClick={() => {
-                      setOpenMenuId(application.id);
-                      setIsMenuOpen(!isMenuOpen);
-                    }}
+                    onClick={() => toggleMenu(application.id)}
                   >
                     <MdMoreVert className="hover:bg-gray-600 text-2xl rounded-md" />
                   </button>
-                  {openMenuId == application.id && (
-                    <div
-                      className={`absolute right-0 top-0 border bg-slate-800 text-white p-1 min-w-20 ${isMenuOpen ? "flex flex-col" : "hidden"}`}
-                    >
+                  {openMenuId === application.id && (
+                    <div className="absolute right-0 top-0 flex min-w-20 flex-col border bg-slate-800 p-1 text-white">
                       <button className="w-full text-left px-1 py-2 hover:bg-slate-700">
                         Edit
                       </button>
                       <button
                         className="w-full text-left px-1 py-2 hover:bg-slate-700"
-                        onClick={() => handleDelete(application.id)}
+                        disabled={deletingId === application.id}
+                        onClick={async () => {
+                          await onDelete(application.id);
+                          setOpenMenuId(null);
+                        }}
                       >
-                        Delete
+                        {deletingId === application.id ? "Deleting..." : "Delete"}
                       </button>
                     </div>
                   )}

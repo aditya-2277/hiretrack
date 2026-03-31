@@ -1,50 +1,31 @@
-import { useState, useEffect } from "react";
 import ApplicationsTable from "../components/Application/ApplicationsTable";
 import AppPageHeader from "../components/Application/AppPageHeader";
-import type { JobApplication } from "../types/jobApplication";
 import { Ring2 } from "ldrs/react";
 import "ldrs/react/Ring2.css";
 import AddTestApplication from "../components/Application/AddTestApplication";
+import { useJobApplications } from "../hooks/useJobApplications";
 
 function Applications() {
-  const [applications, setApplications] = useState<JobApplication[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const {
+    applications,
+    isLoading,
+    isSubmitting,
+    deletingId,
+    error,
+    addApplication,
+    removeApplication,
+  } = useJobApplications();
 
-  const fetchApplications = async () => {
-    try {
-      const response = await fetch(
-        "https://localhost:7057/api/jobapplications",
-      );
+  const noOfApplications = applications.length;
 
-      if (!response.ok) {
-        throw new Error("Failed to get");
-      }
-
-      const data: JobApplication[] = await response.json();
-      setApplications(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      fetchApplications();
-    }, 100);
-  }, []);
-
-  let noOfAppln = applications.length;
   return (
     <section className="p-4">
       <AppPageHeader
         title="Active Applications"
-        desc={`You have ${noOfAppln} active job applications this month`}
+        desc={`You have ${noOfApplications} active job applications this month`}
       />
-      <AddTestApplication onSuccess={fetchApplications} />
-      {loading && ( // Default values shown
+      <AddTestApplication onSubmit={addApplication} isSubmitting={isSubmitting} />
+      {isLoading && (
         <div className="flex items-center justify-center mt-6">
           <Ring2
             size="40"
@@ -57,10 +38,11 @@ function Applications() {
         </div>
       )}
       {error && <p className="mt-6 text-red">{error}</p>}
-      {!loading && !error && (
+      {!isLoading && !error && (
         <ApplicationsTable
           applications={applications}
-          onSuccess={fetchApplications}
+          deletingId={deletingId}
+          onDelete={removeApplication}
         />
       )}
     </section>

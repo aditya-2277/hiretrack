@@ -1,33 +1,27 @@
-import { Link } from "react-router-dom";
-import { type NavbarProps } from "../../types/props";
-import react from "../../assets/react.svg";
+import type { AppUser } from "../../auth/session";
 
-function NavProfile({ variant }: NavbarProps) {
+type NavProfileProps = {
+  user: AppUser;
+};
+
+function NavProfile({ user }: NavProfileProps) {
+  const initials = user.name
+    .split(" ")
+    .map((segment) => segment[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
-    <>
-      <div
-        className={`login-button ${variant == "app" ? "hidden" : "inline-block"}`}
-      >
-        <Link
-          to={"/auth"}
-          className={`${variant == "landing" ? "inline-block" : "hidden"} px-4 py-2 rounded-full bg-primary text-foreground mx-2 shadow-lg shadow-primary/30 transition-all hover:scale-105`}
-        >
-          Start Tracking!
-        </Link>
-
-        <Link
-          to={"/"}
-          className={`${variant == "landing" ? "hidden" : "inline-block"} px-4 py-2 rounded-full bg-primary text-foreground mx-2 shadow-lg shadow-primary/30 hover:bg-blue-500/60`}
-        >
-          Go Home
-        </Link>
+    <div className="flex items-center gap-3">
+      <div className="text-right">
+        <p className="text-sm font-medium text-foreground">{user.name}</p>
+        <p className="text-xs text-muted-foreground">{user.role}</p>
       </div>
-      <div
-        className={`w-8 h-8 rounded-full bg-red-50 ${variant == "app" ? "flex items-center justify-center" : "hidden"}`}
-      >
-        <img src={react} className="w-6" />
+      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-sm font-semibold text-primary">
+        {initials}
       </div>
-    </>
+    </div>
   );
 }
 

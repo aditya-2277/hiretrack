@@ -1,21 +1,7 @@
-import { applications } from "../../data/data";
+import { applications } from "../../data/dashboard";
+import StatusBadge from "../shared/StatusBadge";
 
 function AppDashTable() {
-  const getStatusClasses = (status: string) => {
-    switch (status) {
-      case "Applied":
-        return "bg-blue-500/15 text-blue-400 border border-blue-500/20";
-      case "Interview":
-        return "bg-amber-500/15 text-amber-400 border border-amber-500/20";
-      case "Offer":
-        return "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
-      case "Rejected":
-        return "bg-rose-500/15 text-rose-400 border border-rose-500/20";
-      default:
-        return "bg-slate-700/40 text-slate-300 border border-slate-600";
-    }
-  };
-
   return (
     <div className="rounded-4xl bg-card p-5 shadow-sm border border-white/5 cursor-default h-90">
       <div className="mb-4">
@@ -57,13 +43,7 @@ function AppDashTable() {
                   {application.position}
                 </td>
                 <td className="px-4 py-4">
-                  <span
-                    className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ${getStatusClasses(
-                      application.status,
-                    )}`}
-                  >
-                    {application.status}
-                  </span>
+                  <StatusBadge status={application.status} />
                 </td>
                 <td className="px-4 py-4 text-muted-foreground whitespace-nowrap">
                   {application.dateApplied}

@@ -1,5 +1,5 @@
 import DashboardCard from "./DashboardCard";
-import { cardData } from "../../data/data";
+import { cardData } from "../../data/dashboard";
 
 function DashboardCards() {
   return (

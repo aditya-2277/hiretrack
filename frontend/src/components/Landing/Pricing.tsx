@@ -1,5 +1,5 @@
 import PricingCard from "./PricingCard";
-import { plans } from "../../data/data";
+import { plans } from "../../data/marketing";
 import { useState } from "react";
 
 function Pricing() {

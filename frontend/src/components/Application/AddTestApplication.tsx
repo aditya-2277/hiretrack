@@ -1,68 +1,61 @@
 import { useState } from "react";
+import type { JobApplicationInput } from "../../types/jobApplication";
 
 type Props = {
-  onSuccess: () => Promise<void>;
+  onSubmit: (payload: JobApplicationInput) => Promise<void>;
+  isSubmitting: boolean;
 };
 
-function AddTestApplication({ onSuccess }: Props) {
-  const [companyName, setCompanyName] = useState("");
-  const [position, setPostion] = useState("");
-  const [type, setType] = useState("");
-  const [status, setStatus] = useState("");
-  const [dateApplied, setDateApplied] = useState("");
+const initialFormState: JobApplicationInput = {
+  companyName: "",
+  position: "",
+  type: "",
+  status: "",
+  dateApplied: "",
+};
 
-  const data = {
-    companyName,
-    position,
-    type,
-    status,
-    dateApplied,
+function AddTestApplication({ onSubmit, isSubmitting }: Props) {
+  const [formData, setFormData] = useState<JobApplicationInput>(initialFormState);
+  const [formError, setFormError] = useState("");
+
+  const updateField = <K extends keyof JobApplicationInput>(
+    field: K,
+    value: JobApplicationInput[K],
+  ) => {
+    setFormData((current) => ({ ...current, [field]: value }));
   };
 
   const handleSubmit = async () => {
+    const hasEmptyField = Object.values(formData).some((value) => !value.trim());
+    if (hasEmptyField) {
+      setFormError("All fields are required");
+      return;
+    }
+
+    setFormError("");
+
     try {
-      const response = await fetch(
-        "https://localhost:7057/api/jobapplications",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        },
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to create application");
-      }
-
-      const result = await response.json();
-
-      await onSuccess();
-      setCompanyName("");
-      setPostion("");
-      setType("");
-      setStatus("");
-      setDateApplied("");
-      console.log(result);
-    } catch (error) {
-      console.error(error);
+      await onSubmit(formData);
+      setFormData(initialFormState);
+    } catch {
+      // Request failures are surfaced by the page-level hook.
     }
   };
   return (
     <div className="my-4">
       <h3 className="text-2xl">Test Application form</h3>
+      {formError ? <p className="mt-2 text-sm text-red-400">{formError}</p> : null}
       <div className="flex">
         <input
           placeholder="Company"
-          value={companyName}
-          onChange={(e) => setCompanyName(e.target.value)}
+          value={formData.companyName}
+          onChange={(e) => updateField("companyName", e.target.value)}
           className="mx-2 border"
         ></input>
         <input
           placeholder="Position"
-          value={position}
-          onChange={(e) => setPostion(e.target.value)}
+          value={formData.position}
+          onChange={(e) => updateField("position", e.target.value)}
           className="mx-2 border"
         ></input>
         <label htmlFor="status">Status: </label>
@@ -70,8 +63,8 @@ function AddTestApplication({ onSuccess }: Props) {
         <select
           name="status"
           id="status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
+          value={formData.status}
+          onChange={(e) => updateField("status", e.target.value)}
           className="mx-2 border"
         >
           <option value="">-Select status-</option>
@@ -85,8 +78,8 @@ function AddTestApplication({ onSuccess }: Props) {
         <select
           name="type"
           id="type"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
+          value={formData.type}
+          onChange={(e) => updateField("type", e.target.value)}
           className="mx-2 border"
         >
           <option value="">-Select type-</option>
@@ -95,15 +88,16 @@ function AddTestApplication({ onSuccess }: Props) {
         </select>
         <input
           placeholder="yyyy-mm-dd"
-          value={dateApplied}
-          onChange={(e) => setDateApplied(e.target.value)}
+          value={formData.dateApplied}
+          onChange={(e) => updateField("dateApplied", e.target.value)}
           className="mx-2 border"
         ></input>
         <button
           onClick={handleSubmit}
+          disabled={isSubmitting}
           className="border rounded-2xl border-amber-50 p-2 bg-surface mx-6"
         >
-          Submit
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </div>
     </div>
