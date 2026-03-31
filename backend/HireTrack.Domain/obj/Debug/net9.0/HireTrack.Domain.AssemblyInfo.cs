@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HireTrack.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+375d358cf7eb3990f45ec5a814ef2a01da38e6bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdd7a28bdee586b45d4f0171e92845506a213822")]
 [assembly: System.Reflection.AssemblyProductAttribute("HireTrack.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HireTrack.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

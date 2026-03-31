@@ -21,6 +21,8 @@ namespace HireTrack.Infrastructure
 
         public DbSet<Question> Questions { get; set; }
 
+        public DbSet<AppUser> appUsers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<JobInterview>()
@@ -28,6 +30,10 @@ namespace HireTrack.Infrastructure
                 .WithOne(q => q.Interview)
                 .HasForeignKey(q => q.InterviewId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AppUser>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
         }
 
     }

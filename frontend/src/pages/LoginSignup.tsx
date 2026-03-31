@@ -1,7 +1,7 @@
-import LoginCard from "../components/Landing/LoginCard";
-import LoginHero from "../components/Landing/LoginHero";
+import LoginCard from "../components/Auth/LoginCard";
+import LoginHero from "../components/Auth/LoginHero";
 import { useState } from "react";
-import SignUpCard from "../components/Landing/SignUpCard";
+import SignUpCard from "../components/Auth/SignUpCard";
 
 function LoginSignup() {
   const [mode, setMode] = useState<"login" | "signup">("login");

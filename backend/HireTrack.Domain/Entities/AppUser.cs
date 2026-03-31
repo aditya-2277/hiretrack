@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HireTrack.Domain.Entities
 {
-    internal class User : CommonEntities
+    public class AppUser : CommonEntities
     {
         public Guid Id { get; set; }
 

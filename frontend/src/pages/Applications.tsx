@@ -24,7 +24,7 @@ function Applications() {
         title="Active Applications"
         desc={`You have ${noOfApplications} active job applications this month`}
       />
-      <AddTestApplication onSubmit={addApplication} isSubmitting={isSubmitting} />
+
       {isLoading && (
         <div className="flex items-center justify-center mt-6">
           <Ring2

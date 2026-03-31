@@ -1,3 +1,7 @@
+import { useState, type SubmitEvent } from "react";
+
+import { AUTH_USER_ENDPOINT } from "../../config/env";
+
 function UserIcon() {
   return (
     <svg
@@ -74,6 +78,47 @@ type SignUpCardProps = {
 };
 
 function SignUpCard({ onSwitchToSignIn }: SignUpCardProps) {
+  const [fullName, setFullName] = useState("");
+  const [emailAdd, setEmailAdd] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrorMsg("");
+    setSuccessMsg("");
+
+    try {
+      const res = await fetch(`${AUTH_USER_ENDPOINT}/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          email: emailAdd,
+          password,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.message || "Something went wrong. Sign Up Error!");
+        return;
+      }
+
+      setSuccessMsg("Account Created Successfully");
+      setFullName("");
+      setEmailAdd("");
+      setPassword("");
+
+      onSwitchToSignIn();
+    } catch {
+      setErrorMsg(errorMsg + "Something went wrong!");
+    }
+  };
   return (
     <section className="flex justify-center w-md m-auto">
       <div className="w-full rounded-2xl border border-white/8 bg-surface/90 sm:p-8">
@@ -97,8 +142,13 @@ function SignUpCard({ onSwitchToSignIn }: SignUpCardProps) {
           Or continue with email
           <span className="h-px flex-1 bg-white/8" />
         </div>
-
-        <form className="space-y-5">
+        {successMsg && <p>User Created Successfully</p>}
+        {errorMsg && (
+          <p className="text-red-600 font-bold text-lg text-center my-2">
+            {`${errorMsg} Try another email.`}
+          </p>
+        )}
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="name"
@@ -112,6 +162,7 @@ function SignUpCard({ onSwitchToSignIn }: SignUpCardProps) {
                 id="name"
                 type="text"
                 placeholder="John Doe"
+                onChange={(e) => setFullName(e.target.value)}
                 className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
             </div>
@@ -130,6 +181,7 @@ function SignUpCard({ onSwitchToSignIn }: SignUpCardProps) {
                 id="email"
                 type="email"
                 placeholder="name@company.com"
+                onChange={(e) => setEmailAdd(e.target.value)}
                 className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
             </div>
@@ -148,6 +200,7 @@ function SignUpCard({ onSwitchToSignIn }: SignUpCardProps) {
                 id="password"
                 type="password"
                 placeholder="********"
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
             </div>

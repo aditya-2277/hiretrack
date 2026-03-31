@@ -10,7 +10,6 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(opt => 
 opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddSingleton<ILogger>(ILogger)
 
 builder.Services.AddCors(options =>
 {
