@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(opt => 
 opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddSingleton<ILogger>(ILogger)
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -19,7 +21,7 @@ builder.Services.AddCors(options =>
               .AllowAnyMethod();
     });
 });
-
+    
 var app = builder.Build();
 //Middleware
 app.MapControllers();
