@@ -324,7 +324,6 @@ D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\ne
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\staticwebassets.build.json.cache
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\staticwebassets.development.json
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\HireTrac.F32269D3.Up2Date
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\HireTrack.API.dll
 D:\Learning\Full Stack .NET + React\HireTrack\backend\HireTrack.API\obj\Debug\net9.0\refint\HireTrack.API.dll

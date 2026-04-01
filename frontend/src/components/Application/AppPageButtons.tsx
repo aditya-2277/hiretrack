@@ -1,7 +1,11 @@
 import { MdDownload } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
-function AppPageButtons() {
+type AppPageButtonsProps = {
+  onNewClick?: () => void;
+};
+
+function AppPageButtons({ onNewClick }: AppPageButtonsProps) {
   const location = useLocation();
   const pathName = location.pathname;
   return (
@@ -19,6 +23,7 @@ function AppPageButtons() {
       </button>
       <button
         type="button"
+        onClick={onNewClick}
         className={`bg-primary h-10  rounded-xl p-2 shadow-md shadow-primary/50 hover:bg-blue-800 items-center ${pathName == "/app/insights" ? "hidden" : "flex"}`}
       >
         <span className="">+</span>

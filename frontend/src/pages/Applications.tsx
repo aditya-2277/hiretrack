@@ -1,11 +1,13 @@
+import { useState } from "react";
 import ApplicationsTable from "../components/Application/ApplicationsTable";
 import AppPageHeader from "../components/Application/AppPageHeader";
 import { Ring2 } from "ldrs/react";
 import "ldrs/react/Ring2.css";
-import AddTestApplication from "../components/Application/AddTestApplication";
+import AddApplicationModal from "../components/Application/AddApplicationModal";
 import { useJobApplications } from "../hooks/useJobApplications";
 
 function Applications() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     applications,
     isLoading,
@@ -23,7 +25,16 @@ function Applications() {
       <AppPageHeader
         title="Active Applications"
         desc={`You have ${noOfApplications} active job applications this month`}
+        onNewClick={() => setIsModalOpen(true)}
       />
+
+      {isModalOpen && (
+        <AddApplicationModal
+          onClose={() => setIsModalOpen(false)}
+          isSubmitting={isSubmitting}
+          onSubmit={addApplication}
+        />
+      )}
 
       {isLoading && (
         <div className="flex items-center justify-center mt-6">
